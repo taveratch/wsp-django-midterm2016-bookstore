@@ -1,0 +1,38 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+<link rel="stylesheet" href="{% static 'uikit2/css/uikit.almost-flat.min.css' %}" />
+<script src="{% static 'jquery-3.1.1.min.js' %}"></script>
+<script src="{% static 'uikit2/js/uikit.min.js' %}"></script>
+
+<form class="uk-form" action="{% url 'bookstore:insert_api' %}" method="post" >
+    {% csrf_token %}
+    <fieldset class="insert-form">
+        <legend>Insert new book</legend>
+        <div class="uk-form-row">
+            <label>Book id : &nbsp;</label>
+            <input class="uk-form-width-medium" name="book-id" type="number" value="{{book_id}}"/>
+        </div>
+        <div class="uk-form-row">
+            <label>ISBN : &nbsp;</label>
+            <input class="uk-form-width-medium" name="isbn" type="text" />
+        </div>
+        <div class="uk-form-row">
+            <label>Book name :&nbsp;</label>
+            <input class="uk-form-width-medium" name="name" type="text" />
+        </div>
+        <div class="uk-form-row">
+            <label>Price : &nbsp;</label>
+            <input class="uk-form-width-medium" name="price" type="number" />
+        </div>
+        <div class="uk-form-row">
+            <label>Author : &nbsp;</label>
+            <input class="uk-form-width-medium" name="author" type="text" />
+        </div>
+        <div class="uk-form-row">
+          <button class="uk-button" >Insert</button>
+        </div>
+        <div class="uk-form-row">
+          <a href="{% url 'bookstore:index' %}">Show all books</a>
+        </div>
+    </fieldset>
+</form>
